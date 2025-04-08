@@ -1,9 +1,13 @@
-import {CreatTransport} from 'nodemailer'
+// import nodemailer from 'nodemailer';
+// const { CreatTransport } = nodemailer;
+import { createTransport } from 'nodemailer';
 
 const sendMail = async(email, subject, data) =>{
-    const transport = CreatTransport({
+    const transport = createTransport({
         host:"smtp.gmail.com",
-        port: 465,
+        // port: 465,
+        port: 587,
+        
         auth:{
             user: process.env.Gmail,
             pass : process.env.password
@@ -57,7 +61,6 @@ const sendMail = async(email, subject, data) =>{
 </html>
 `;
 
-
     await transport.sendMail({
         from: process.env.Gmail,
         to: email,
@@ -65,3 +68,5 @@ const sendMail = async(email, subject, data) =>{
         html
     })
 }
+
+export default sendMail;

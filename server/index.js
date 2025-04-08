@@ -4,6 +4,10 @@ import { connectDb } from './database/db.js';
 
 const app = express();
 
+// using middleware
+
+app.use(express.json());
+
 app.get("/",(req,res)=>{
     res.send('Server is Working');
 })
