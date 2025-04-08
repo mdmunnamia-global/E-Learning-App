@@ -8,12 +8,11 @@ app.get("/",(req,res)=>{
     res.send('Server is Working');
 })
 
-
 //importing routes
 import userRoutes from "./routes/user.js"
-//Using routes
-app.use("/api",userRoutes )
 
+//Using routes
+app.use("/api",userRoutes)
 
 const port = process.env.PORT || 5000;
 
